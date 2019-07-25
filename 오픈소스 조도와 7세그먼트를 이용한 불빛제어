@@ -1,0 +1,191 @@
+int lightPin =0;
+int ledPin =11;
+const int _a=2;       
+const int _b=3;
+const int _c=4;
+const int _d=5;
+const int _e=9;
+const int _f=8;
+const int _g=7;
+const int _dot=6;
+void display_number(int n){
+    switch(n){
+        case 0:
+           digitalWrite(_e,LOW);
+           digitalWrite(_b,LOW);
+           digitalWrite(_c,LOW);
+           digitalWrite(_d,LOW);
+           digitalWrite(_g,LOW);
+           digitalWrite(_f,LOW);
+           digitalWrite(_a,HIGH);
+           digitalWrite(_dot,HIGH);
+           break;
+       case 1:
+           digitalWrite(_e,HIGH);
+           digitalWrite(_b,HIGH);
+           digitalWrite(_c,HIGH);
+           digitalWrite(_d,HIGH);
+           digitalWrite(_g,LOW);
+           digitalWrite(_f,LOW);
+           digitalWrite(_a,HIGH);
+           digitalWrite(_dot,HIGH);
+           break;
+       case 2:
+           digitalWrite(_e,LOW);
+           digitalWrite(_b,HIGH);
+           digitalWrite(_c,LOW);
+           digitalWrite(_d,LOW);
+           digitalWrite(_g,HIGH);
+           digitalWrite(_f,LOW);
+           digitalWrite(_a,LOW);
+           digitalWrite(_dot,HIGH);
+           break;
+      case 3:
+           digitalWrite(_e,LOW);
+           digitalWrite(_b,HIGH);
+           digitalWrite(_c,HIGH);
+           digitalWrite(_d,LOW);
+           digitalWrite(_g,LOW);
+           digitalWrite(_f,LOW);
+           digitalWrite(_a,LOW);
+           digitalWrite(_dot,HIGH);
+           break;
+        case 4:
+           digitalWrite(_e,HIGH);
+           digitalWrite(_b,LOW);
+           digitalWrite(_c,HIGH);
+           digitalWrite(_d,HIGH);
+           digitalWrite(_g,LOW);
+           digitalWrite(_f,LOW);
+           digitalWrite(_a,LOW);
+           digitalWrite(_dot,HIGH);
+           break;
+      case 5:
+           digitalWrite(_e,LOW);
+           digitalWrite(_b,LOW);
+           digitalWrite(_c,HIGH);
+           digitalWrite(_d,LOW);
+           digitalWrite(_g,LOW);
+           digitalWrite(_f,HIGH);
+           digitalWrite(_a,LOW);
+           digitalWrite(_dot,HIGH);
+           break;
+      case 6:
+           digitalWrite(_e,LOW);
+           digitalWrite(_b,LOW);
+           digitalWrite(_c,LOW);
+           digitalWrite(_d,LOW);
+           digitalWrite(_g,LOW);
+           digitalWrite(_f,HIGH);
+           digitalWrite(_a,LOW);
+           digitalWrite(_dot,HIGH);
+           break;
+       case 7:
+          digitalWrite(_e,LOW);
+          digitalWrite(_b,LOW);
+          digitalWrite(_c,HIGH);
+          digitalWrite(_d,HIGH);
+          digitalWrite(_g,LOW);
+          digitalWrite(_f,LOW);
+          digitalWrite(_a,HIGH);
+          digitalWrite(_dot,HIGH);
+          break;
+       case 8:
+          digitalWrite(_e,LOW);
+          digitalWrite(_b,LOW);
+          digitalWrite(_c,LOW);
+          digitalWrite(_d,LOW);
+          digitalWrite(_g,LOW);
+          digitalWrite(_f,LOW);
+          digitalWrite(_a,LOW);
+          digitalWrite(_dot,HIGH);
+          break;
+       case 9:
+          digitalWrite(_e,LOW);
+          digitalWrite(_b,LOW);
+          digitalWrite(_c,HIGH);
+          digitalWrite(_d,LOW);
+          digitalWrite(_g,LOW);
+          digitalWrite(_f,LOW);
+          digitalWrite(_a,LOW);
+          digitalWrite(_dot,HIGH);
+          break;
+     case 10:
+          digitalWrite(_e,HIGH);
+          digitalWrite(_b,HIGH);
+          digitalWrite(_c,HIGH);
+          digitalWrite(_d,HIGH);
+          digitalWrite(_g,HIGH);
+          digitalWrite(_f,HIGH);
+          digitalWrite(_a,HIGH);
+          digitalWrite(_dot,LOW);
+          break;
+       }
+}
+
+void setup(){
+     Serial.begin(9600);
+     pinMode(ledPin, OUTPUT);
+     pinMode(_a,OUTPUT);
+     pinMode(_b,OUTPUT);
+     pinMode(_c,OUTPUT);
+     pinMode(_d,OUTPUT);
+     pinMode(_e,OUTPUT);
+     pinMode(_f,OUTPUT);
+     pinMode(_g,OUTPUT);
+     pinMode(_dot,OUTPUT);
+     
+     
+
+};
+
+void loop(){
+     Serial.println(analogRead(lightPin)/4);
+     if(analogRead(lightPin)/4 <=60){
+         display_number(1);
+         delay(1000);
+     }
+     else if(analogRead(lightPin)/4 <=70){
+         display_number(2);
+         delay(1000);
+     }
+     else if(analogRead(lightPin)/4 <=80){
+           display_number(3);
+           delay(500);
+     }
+     else if(analogRead(lightPin)/4 <=85){
+            display_number(4);
+            delay(500);
+     }
+     else if(analogRead(lightPin)/4 <=90){
+            display_number(5);
+            delay(500);
+     }
+     else if(analogRead(lightPin)/4 <=93){
+            display_number(6);
+            delay(500);
+     }
+     else if(analogRead(lightPin)/4 <=97){
+            display_number(7);
+            delay(500);
+     }
+     else if(analogRead(lightPin)/4 <=102){
+          display_number(8);
+          delay(500);
+     }
+     else if(analogRead(lightPin)/4 <=104){
+          display_number(9);
+          delay(500);
+     }
+   /*  else if(analogRead(lightPin)/4 <=110){
+          display_number(10);
+          delay(1000);
+     }*/
+     /*int i;
+     for(i=0; i<11; i++){
+          display_number(i);
+          delay(1000);
+      }
+      */
+    
+}
