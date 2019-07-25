@@ -1,0 +1,31 @@
+#include <LiquidCrystal_I2C.h>
+#include<Wire.h>
+LiquidCrystal_I2C lcd(0x3F,16,2);
+int joyPin1 =0;
+int joyPin2 =1;
+int value1 =0;
+int value2=0;
+void setup(){
+  lcd.init();
+  lcd.backlight();
+   pinMode(value1, OUTPUT); 
+   pinMode(joyPin1, INPUT);  
+   pinMode(value2, OUTPUT); 
+   pinMode(joyPin2, INPUT);  
+}
+
+void loop(){
+  value1 = analogRead(joyPin1);
+  value2 = analogRead(joyPin2);
+  
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0,0);
+  lcd.print("Jx : ");
+  lcd.print(value1);
+  lcd.setCursor(0,1);
+  lcd.print("Jy : ");
+  lcd.print(value2);
+  lcd.blink();
+  
+}
