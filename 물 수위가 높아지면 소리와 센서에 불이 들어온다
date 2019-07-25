@@ -1,0 +1,24 @@
+int water_sensor =0;
+int led =9;
+int buzzer = 7;
+void setup(){
+  Serial.begin(9600);
+  pinMode(led, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop(){
+  water_sensor = analogRead(A0);
+  Serial.print("수위센서레벨: ");
+  Serial.println(water_sensor);
+  if(water_sensor >=200){
+      digitalWrite(buzzer,HIGH);
+      delay(500);
+      digitalWrite(buzzer, LOW);
+      delay(500);
+      digitalWrite(led, HIGH);
+      delay(1000);
+      digitalWrite(led, LOW);
+      delay(1000);
+  }
+}
